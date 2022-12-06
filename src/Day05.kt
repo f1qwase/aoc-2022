@@ -1,4 +1,4 @@
-data class Store(val stacks: Array<List<Char>>) {
+private data class Store(val stacks: Array<List<Char>>) {
     fun move(from: Int, to: Int, count: Int) {
         val movedCrates = stacks[from].take(count)
         stacks[from] = stacks[from].drop(count)
@@ -25,7 +25,7 @@ data class Store(val stacks: Array<List<Char>>) {
     }
 }
 
-data class Move(val from: Int, val to: Int, val count: Int) {
+private data class Move(val from: Int, val to: Int, val count: Int) {
     companion object {
         fun parse(input: String): Move {
             //            "move 6 from 1 to 7"
