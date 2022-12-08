@@ -5,7 +5,7 @@ private val TOTAL_SPACE = 70000000
 private val SPACE_REQUIRED = 30000000
 
 
-sealed interface FSNode {
+private sealed interface FSNode {
     val parent: FSNode?
     val name: String
     val size: Int
@@ -38,10 +38,10 @@ sealed interface FSNode {
 }
 
 
-typealias Input = String
-typealias Output = List<String>
+private typealias Input = String
+private typealias Output = List<String>
 
-fun parseIo(io: List<String>): List<Pair<Input, Output>> = buildList {
+private fun parseIo(io: List<String>): List<Pair<Input, Output>> = buildList {
     io.forEach {
         if (it.startsWith(COMMAND_PREFIX)) {
             add(it.substringAfter(COMMAND_PREFIX) to mutableListOf())
@@ -51,7 +51,7 @@ fun parseIo(io: List<String>): List<Pair<Input, Output>> = buildList {
     }
 }
 
-fun discoverFs(cmdIo: List<Pair<Input, Output>>): FSNode.Dir {
+private fun discoverFs(cmdIo: List<Pair<Input, Output>>): FSNode.Dir {
     var currentDir: FSNode.Dir? = null
     cmdIo.forEach { (cmdIn, cmdOut) ->
         val command = cmdIn.substringBefore(" ")
