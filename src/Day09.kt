@@ -1,5 +1,4 @@
 import kotlin.math.abs
-import kotlin.math.sign
 
 private data class Vector(val x: Int, val y: Int) {
     operator fun minus(other: Vector) = Vector(x - other.x, y - other.y)
