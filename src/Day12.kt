@@ -1,45 +1,4 @@
-import kotlin.math.abs
-
-data class Position(
-    val x: Int,
-    val y: Int,
-) {
-    fun neighbours() = listOf(
-        Position(x, y + 1),
-        Position(x, y - 1),
-        Position(x + 1, y),
-        Position(x - 1, y),
-    )
-
-    override fun toString(): String {
-        return "[$x,$y]"
-    }
-}
-
 private typealias HeightsMap = Map<Position, Char>
-
-
-//private fun HeightsMap.getShortestWay(
-//    from: Position,
-//    to: Position,
-//    visited: List<Position>,
-//    shortestWays: Array<Array<Int?>>
-//): Int? {
-//    if (from == to) {
-//        return 0
-//    }
-//
-//    println("calling for $from")
-//
-//    return from.neighbours()
-//        .asSequence()
-//        .filterNot { it in visited }
-//        .filter(::contains)
-//        .filter { abs(getHeight(it) - getHeight(from)) <= 1 }
-//        .mapNotNull { getShortestWay(it, to,visited + from) }
-//        .minOrNull()
-//        ?.let { it + 1 }
-//}
 
 
 private data class Input2(
